@@ -1,0 +1,101 @@
+[
+  {
+    "id": "cash_deposit_arabic",
+    "field": "category",
+    "value": "cash_deposit",
+    "pattern": "ايداع نقدي|إيداع نقدي",
+    "match_type": "regex_value",
+    "confidence": 0.95,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "cash_withdrawal_arabic",
+    "field": "category",
+    "value": "cash_withdrawal",
+    "pattern": "سحب نقدي|سحب",
+    "match_type": "regex_value",
+    "confidence": 0.95,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "fee_arabic_rasoom",
+    "field": "category",
+    "value": "fee",
+    "pattern": "رسوم|تعاب|رسم|عمولة|عموله",
+    "match_type": "regex_value",
+    "confidence": 0.90,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "vat_arabic",
+    "field": "category",
+    "value": "vat",
+    "pattern": "ضريبة|القيمة المضافة",
+    "match_type": "regex_value",
+    "confidence": 0.95,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "income_transfer",
+    "field": "category",
+    "value": "transfer_in",
+    "pattern": "INCOME",
+    "match_type": "contains",
+    "confidence": 0.85,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "banking_deposit",
+    "field": "category",
+    "value": "cash_deposit",
+    "pattern": "البنك-ايداع نقدي|البنك ايداع",
+    "match_type": "regex_value",
+    "confidence": 0.90,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "salary_arabic",
+    "field": "category",
+    "value": "salary_payment",
+    "pattern": "دفع رواتب|رواتب",
+    "match_type": "regex_value",
+    "confidence": 0.95,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "tawarruq_financing",
+    "field": "category",
+    "value": "loan_repayment",
+    "pattern": "تمويل تورق|تورق",
+    "match_type": "regex_value",
+    "confidence": 0.95,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  },
+  {
+    "id": "atm_transaction",
+    "field": "category",
+    "value": "cash_deposit",
+    "pattern": "صراف آلي|ATM",
+    "match_type": "regex_value",
+    "confidence": 0.85,
+    "enabled": true,
+    "use_count": 0,
+    "created_at": "2025-01-01T00:00:00+00:00"
+  }
+]

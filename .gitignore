@@ -1,0 +1,17 @@
+# Local config
+.env
+
+# Real financial documents and anything derived from them - never commit
+*.pdf
+!samples/*.pdf
+test_docs/
+uploads/
+reports/
+data/learning_rules.json
+data/counterparty_aliases.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

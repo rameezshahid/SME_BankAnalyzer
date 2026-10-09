@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Statement Analyzer</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">SME statement analyzer</p>
+        <h1>Upload, review, and trust the numbers.</h1>
+      </div>
+      <nav>
+        <a href="#upload">Upload</a>
+        <a href="#review">Review</a>
+        <a href="#report">Report</a>
+        <a href="/docs" target="_blank" rel="noreferrer">API docs</a>
+        <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="command-panel">
+        <div>
+          <p class="eyebrow">Parser confidence, review questions, analytics</p>
+          <h2>Analyze a statement, clean the uncertain fields, and review the report.</h2>
+          <p>
+            The system detects bank statements and ZATCA VAT returns, parses the key numbers, and asks only for fields it cannot determine.
+          </p>
+        </div>
+        <div class="quick-stats">
+          <div>
+            <span>Supported parsers</span>
+            <strong>7</strong>
+          </div>
+          <div>
+            <span>Review loop</span>
+            <strong>Active</strong>
+          </div>
+          <div>
+            <span>LLM mode</span>
+            <strong>Auto</strong>
+          </div>
+        </div>
+      </section>
+
+      <section id="upload" class="workspace">
+        <div class="upload-zone" id="dropZone">
+          <input id="fileInput" type="file" accept="application/pdf" />
+          <div>
+            <p class="eyebrow">PDF document</p>
+            <h2>Choose a bank statement or ZATCA return</h2>
+            <p id="fileName">Drop a PDF here or select one from your machine.</p>
+          </div>
+          <button id="uploadButton" type="button">Analyze PDF</button>
+        </div>
+
+        <aside class="status-panel">
+          <p class="eyebrow">Run status</p>
+          <h2 id="runTitle">Ready</h2>
+          <p id="runMessage">No statement analyzed yet.</p>
+          <div class="progress-track">
+            <div id="confidenceBar"></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="saved-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Saved reports</p>
+            <h2>Open previous analyses</h2>
+          </div>
+          <button id="refreshReportsButton" type="button">Refresh</button>
+        </div>
+        <div id="savedReports" class="saved-list"></div>
+      </section>
+
+      <section id="report" class="report-grid hidden">
+        <article class="summary-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Statement quality</p>
+              <h2>Parse Summary</h2>
+            </div>
+            <div class="heading-actions">
+              <span id="statusBadge" class="badge">Pending</span>
+              <button id="downloadCurrentButton" type="button">Download PDF</button>
+            </div>
+          </div>
+          <div id="summaryCards" class="metric-grid"></div>
+          <div id="warningsList" class="warnings"></div>
+        </article>
+
+        <article class="summary-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Business report</p>
+              <h2>Analytics</h2>
+            </div>
+          </div>
+          <div id="analyticsCards" class="metric-grid"></div>
+        </article>
+      </section>
+
+      <section id="review" class="review-layout hidden">
+        <article class="summary-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Human review</p>
+              <h2>Questions</h2>
+            </div>
+            <button id="applyReviewButton" type="button">Apply Answers</button>
+          </div>
+          <div id="reviewQuestions" class="question-list"></div>
+        </article>
+
+        <article class="summary-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Ledger</p>
+              <h2>Transactions</h2>
+            </div>
+            <input id="transactionSearch" type="search" placeholder="Search transactions" />
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Amount</th>
+                  <th>Balance</th>
+                  <th>Category</th>
+                  <th>Counterparty</th>
+                </tr>
+              </thead>
+              <tbody id="transactionRows"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <template id="emptyStateTemplate">
+      <div class="empty-state">
+        <strong>No review questions.</strong>
+        <span>The parser did not find fields that need immediate review.</span>
+      </div>
+    </template>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
